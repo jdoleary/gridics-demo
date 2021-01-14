@@ -1,3 +1,3 @@
-export default function main(){
-    console.log('it begins')
-}
+import main from './lib'
+
+main();
