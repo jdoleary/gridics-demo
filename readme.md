@@ -8,3 +8,12 @@ cd a-code-writing
 npm install
 npm start
 ```
+
+## B.) Component Design 
+
+To validate the requirements for Component Design, run:
+```sh
+cd b-component-design 
+npm install
+npm test 
+```
