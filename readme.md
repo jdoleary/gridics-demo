@@ -17,3 +17,11 @@ cd b-component-design
 npm install
 npm test 
 ```
+
+## C.) Database Modeling
+
+```sh
+docker-compose up
+docker exec -it c-database-modeling_db_1 /bin/bash
+> psql -U postgres
+```
