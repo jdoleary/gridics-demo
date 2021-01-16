@@ -1,0 +1,22 @@
+{
+  "name": "b-component-design",
+  "version": "1.0.0",
+  "description": "Technical Interview; B.) Component Design",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdoleary/gridics-demo.git"
+  },
+  "author": "Jordan O'Leary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdoleary/gridics-demo/issues"
+  },
+  "homepage": "https://github.com/jdoleary/gridics-demo#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
