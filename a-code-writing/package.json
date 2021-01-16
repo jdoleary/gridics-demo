@@ -4,6 +4,7 @@
   "description": "Technical Interview; A.) Code Writing",
   "main": "dist/index.js",
   "scripts": {
+    "start": "tsc && node dist/index.js",
     "dev": "tsc -w",
     "test": "tsc && npm test"
   },
