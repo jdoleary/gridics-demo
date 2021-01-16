@@ -1,5 +1,5 @@
-const Cell = require('../Cell.js');
-const SumFormula = require('../SumFormula.js');
+const Cell = require("../Cell.js");
+const SumFormula = require("../SumFormula.js");
 
 describe("SumFormula", () => {
   it("should sum the values within the cells", () => {
