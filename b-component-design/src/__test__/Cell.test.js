@@ -2,7 +2,7 @@ const Cell = require("../Cell.js");
 
 describe("Cell", () => {
   describe("toString", () => {
-    it("should print the value of it's contents ", () => {
+    it("should print the value of it's contents when cast to a string", () => {
       const a = new Cell(7);
       expect(a.toString()).toEqual(7);
     });
@@ -13,7 +13,7 @@ describe("Cell", () => {
       const newValue = 2;
       const a = new Cell(initialValue);
       a.change(newValue);
-      const actual = a.toString();
+      const actual = a.valueOf();
       const expected = newValue;
       expect(actual).toEqual(expected);
     });
