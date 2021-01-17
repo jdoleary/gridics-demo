@@ -23,5 +23,5 @@ npm test
 ```sh
 docker-compose up
 docker exec -it c-database-modeling_db_1 /bin/bash
-> psql -U postgres
+> psql -U postgres -f /tmp/demo/calculations.sql
 ```
