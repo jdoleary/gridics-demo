@@ -6,3 +6,4 @@ services:
       POSTGRES_PASSWORD: example
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./demo:/tmp/demo
