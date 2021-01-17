@@ -5,12 +5,12 @@ CREATE TABLE IF NOT EXISTS rule (
     setback_front integer,
     setback_side integer,
     setback_rear integer,
-    FAR real,
+    FAR numeric,
     density integer,
     unit_size_min integer,
-    residential_parking_min real,
-    office_parking_min real,
-    commercial_parking_min real
+    residential_parking_min numeric,
+    office_parking_min numeric,
+    commercial_parking_min numeric
 );
 
 CREATE TABLE IF NOT EXISTS zone (
@@ -74,7 +74,7 @@ VALUES
     (5000, 50, 100, 1);
 
 CREATE OR REPLACE FUNCTION footprintMax ()
-RETURNS double precision as $$
+RETURNS numeric as $$
 BEGIN RETURN (
     select
         LEAST(
@@ -93,7 +93,7 @@ BEGIN RETURN (
 END; $$ LANGUAGE plpgsql IMMUTABLE;
 
 CREATE OR REPLACE FUNCTION capacityMaxByFAR ()
-RETURNS double precision as $$
+RETURNS numeric as $$
 BEGIN RETURN (
     select
         lot_area * FAR as capacity_max_by_far
@@ -105,7 +105,7 @@ BEGIN RETURN (
 END; $$ LANGUAGE plpgsql IMMUTABLE;
 
 CREATE OR REPLACE FUNCTION capacityMaxByBulk ()
-RETURNS double precision as $$
+RETURNS numeric as $$
 BEGIN RETURN (
     select
         footprintMax() * levels_max as capacity_max_by_bulk
@@ -117,7 +117,7 @@ BEGIN RETURN (
 END; $$ LANGUAGE plpgsql IMMUTABLE;
 
 CREATE OR REPLACE FUNCTION capacityMax ()
-RETURNS double precision as $$
+RETURNS numeric as $$
 BEGIN RETURN (
     select
         LEAST(
@@ -132,7 +132,7 @@ BEGIN RETURN (
 END; $$ LANGUAGE plpgsql IMMUTABLE;
 
 CREATE OR REPLACE FUNCTION dwellingUnitsByDensity ()
-RETURNS double precision as $$
+RETURNS numeric as $$
 BEGIN RETURN (
     select
         (lot_area / 43560.0 * density) as dwelling_units_by_density
@@ -144,7 +144,7 @@ BEGIN RETURN (
 END; $$ LANGUAGE plpgsql IMMUTABLE;
 
 CREATE OR REPLACE FUNCTION dwellingUnitsByBulk ()
-RETURNS double precision as $$
+RETURNS numeric as $$
 BEGIN RETURN (
     select
         (capacityMax() / unit_size_min) as dwelling_units_by_bulk
@@ -156,7 +156,7 @@ BEGIN RETURN (
 END; $$ LANGUAGE plpgsql IMMUTABLE;
 
 CREATE OR REPLACE FUNCTION dwellingUnitsMax ()
-RETURNS double precision as $$
+RETURNS numeric as $$
 BEGIN RETURN (
     select
         LEAST(
