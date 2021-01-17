@@ -20,8 +20,14 @@ npm test
 
 ## C.) Database Modeling
 
+docker-entrypoint-initdb.d/ contains the sql that will initialize the database when the docker container is started via Docker Compose
+
+Executing demo/calculations.sql will print out the solutions.
+
+To run interactively:
 ```sh
 docker-compose up
 docker exec -it c-database-modeling_db_1 /bin/bash
+# Once insite the container run:
 > psql -U postgres -f /tmp/demo/calculations.sql
 ```
